@@ -25,6 +25,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.5', '>= 4.5.3'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'iex-ruby-client', '~> 1.4'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
