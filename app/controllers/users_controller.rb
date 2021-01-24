@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 
   def search
     if params[:friend].present?
-     @friends = User.where('first_name LIKE ?', "%#{params[:friend]}%").or(User.where('email LIKE ?', "%#{params[:friend]}%"))
+    #  @friends = User.where('first_name LIKE ?', "%#{params[:friend]}%").or(User.where('email LIKE ?', "%#{params[:friend]}%")).or(User.where('last_name LIKE ?', "%#{params[:friend]}%"))
+    @friends = User.search(params[:friend])
+    @friends = current_user.except_current_user(@friends)
      if @friends.any?
         respond_to do |format|
           format.js { render partial: 'users/friend_result' }

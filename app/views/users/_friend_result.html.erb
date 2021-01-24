@@ -3,11 +3,13 @@
 </div>
 <% if @friends %>
   <% @friends.each do |friend| %>
-    <div class="card card-header results-block">
-      <strong>First name: </strong> <%= friend.first_name %>
-      <strong>Last name: </strong> <%= friend.last_name %>
-      <strong>Email: </strong> <%= friend.email %>
+    <div class="card card-header results-block text-center">
+      <strong>Name: </strong> <%= friend.full_name %><br>
+      <strong>Email: </strong> <%= friend.email %><br>
+      <br>
+      <%= link_to 'View profile', '', class: 'btn btn-success btn-sm' %>
       <%= link_to 'Start following', '', class: 'btn btn-success btn-sm', method: :post %>
+      <br>
     </div>
   <% end %>
 <% end %>
