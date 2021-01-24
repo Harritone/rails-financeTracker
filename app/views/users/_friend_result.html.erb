@@ -8,7 +8,11 @@
       <strong>Email: </strong> <%= friend.email %><br>
       <br>
       <%= link_to 'View profile', '', class: 'btn btn-success btn-sm' %>
-      <%= link_to 'Start following', '', class: 'btn btn-success btn-sm', method: :post %>
+      <% if current_user.not_friends_with?(friend.id) %>
+        <%= link_to 'Start following', '', class: 'btn btn-success btn-sm', method: :post %>
+      <% else %>
+        <p class="badge badge-secondary">You are friends</p>
+      <% end %>
       <br>
     </div>
   <% end %>
